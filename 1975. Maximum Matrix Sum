@@ -1,0 +1,16 @@
+class Solution:
+    def maxMatrixSum(self, matrix: List[List[int]]) -> int:
+        n = len(matrix)
+        min_value = pow(10,7)
+        s = 0
+        count = 0
+        for i in range(n):
+            for j in range(n):
+                min_value = min(min_value,abs(matrix[i][j]))
+                s+=abs(matrix[i][j])
+                if(matrix[i][j]<0):
+                    count+=1
+        if(count&1):
+            return s-2*min_value
+        else:
+            return s
